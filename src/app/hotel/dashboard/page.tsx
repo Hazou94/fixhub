@@ -110,8 +110,8 @@ export default async function DashboardPage() {
               <p className="p-5 text-sm text-gray-400 text-center">Aucun incident actif 🎉</p>
             )}
             {incidents?.map((inc) => {
-              const room = inc.rooms as { room_number: string };
-              const cat = inc.incident_categories as { name_fr: string; icon: string };
+              const room = inc.rooms as unknown as { room_number: string };
+              const cat = inc.incident_categories as unknown as { name_fr: string; icon: string };
               return (
                 <Link key={inc.id} href={`/hotel/incidents/${inc.id}`} className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors">
                   <div className="text-2xl">{cat?.icon}</div>
@@ -142,8 +142,8 @@ export default async function DashboardPage() {
               <p className="p-5 text-sm text-gray-400 text-center">Aucun problème récurrent</p>
             )}
             {recurring?.map((r) => {
-              const room = r.rooms as { room_number: string };
-              const cat = r.incident_categories as { name_fr: string };
+              const room = r.rooms as unknown as { room_number: string };
+              const cat = r.incident_categories as unknown as { name_fr: string };
               return (
                 <div key={r.id} className="p-4">
                   <p className="text-sm font-medium text-gray-900">Chambre {room?.room_number}</p>

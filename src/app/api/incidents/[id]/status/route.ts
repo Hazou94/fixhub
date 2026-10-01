@@ -69,9 +69,9 @@ export async function PATCH(
       note: note ?? null,
     });
 
-    const hotel = incident.hotels as { name: string };
-    const room = incident.rooms as { room_number: string };
-    const cat = incident.incident_categories as { name_fr: string };
+    const hotel = incident.hotels as unknown as { name: string };
+    const room = incident.rooms as unknown as { room_number: string };
+    const cat = incident.incident_categories as unknown as { name_fr: string };
 
     // Send notifications
     if (incident.guest_email) {
@@ -87,7 +87,7 @@ export async function PATCH(
       }
 
       if (status === "resolved") {
-        const evalRow = (incident.evaluations as { evaluation_token: string }[])?.[0];
+        const evalRow = (incident.evaluations as unknown as { evaluation_token: string }[])?.[0];
         if (evalRow?.evaluation_token) {
           await sendEvaluationRequest({
             to: incident.guest_email,

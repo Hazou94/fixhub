@@ -38,8 +38,8 @@ export default async function RecurringPage() {
 
       <div className="space-y-3">
         {recurring?.map((r) => {
-          const room = r.rooms as { room_number: string };
-          const cat = r.incident_categories as { name_fr: string; icon: string };
+          const room = r.rooms as unknown as { room_number: string };
+          const cat = r.incident_categories as unknown as { name_fr: string; icon: string };
           const severity = r.occurrence_count >= 5 ? "high" : "medium";
           return (
             <div

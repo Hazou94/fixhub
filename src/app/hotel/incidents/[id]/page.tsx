@@ -133,7 +133,7 @@ export default async function IncidentDetailPage({ params }: { params: Promise<{
               <h2 className="font-semibold text-gray-900 mb-4">Devis prestataires</h2>
               <div className="space-y-3">
                 {quotes.map((q) => {
-                  const prov = q.service_providers as { company_name: string; contact_name: string };
+                  const prov = q.service_providers as unknown as { company_name: string; contact_name: string };
                   return (
                     <div key={q.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <div>
@@ -162,7 +162,7 @@ export default async function IncidentDetailPage({ params }: { params: Promise<{
             <h2 className="font-semibold text-gray-900 mb-4">Historique</h2>
             <div className="space-y-3">
               {history?.map((h, i) => {
-                const profile = h.profiles as { full_name: string } | null;
+                const profile = h.profiles as unknown as { full_name: string } | null;
                 return (
                   <div key={h.id} className="flex gap-3">
                     <div className="flex flex-col items-center">

@@ -36,7 +36,7 @@ export default async function TeamPage() {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 divide-y divide-gray-50">
         {team?.map((member) => {
-          const profile = member.profiles as { full_name: string; phone?: string } | null;
+          const profile = member.profiles as unknown as { full_name: string; phone?: string } | null;
           return (
             <div key={member.user_id} className="flex items-center gap-4 p-4">
               <div className="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center shrink-0">

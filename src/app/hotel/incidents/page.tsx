@@ -66,9 +66,9 @@ export default async function IncidentsPage({
           <p className="p-8 text-center text-gray-400">Aucun incident trouvé</p>
         )}
         {incidents?.map((inc) => {
-          const room = inc.rooms as { room_number: string };
-          const cat = inc.incident_categories as { name_fr: string; icon: string };
-          const assignee = inc.profiles as { full_name: string } | null;
+          const room = inc.rooms as unknown as { room_number: string };
+          const cat = inc.incident_categories as unknown as { name_fr: string; icon: string };
+          const assignee = inc.profiles as unknown as { full_name: string } | null;
           return (
             <Link
               key={inc.id}

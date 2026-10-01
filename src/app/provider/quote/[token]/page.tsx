@@ -28,7 +28,7 @@ export default async function ProviderQuotePage({ params }: { params: Promise<{ 
     incident_photos: { public_url: string }[];
     hotels: { name: string };
   };
-  const provider = quote.service_providers as { company_name: string; contact_name: string };
+  const provider = quote.service_providers as unknown as { company_name: string; contact_name: string };
 
   if (isExpired || isAnswered) {
     return (

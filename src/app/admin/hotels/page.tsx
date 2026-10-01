@@ -29,7 +29,7 @@ export default async function AdminHotelsPage() {
           </thead>
           <tbody className="divide-y divide-gray-50">
             {hotels?.map((h) => {
-              const plan = h.subscription_plans as { name: string } | null;
+              const plan = h.subscription_plans as unknown as { name: string } | null;
               return (
                 <tr key={h.id} className="hover:bg-gray-50">
                   <td className="p-4">

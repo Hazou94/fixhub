@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "re_placeholder");
 const FROM = process.env.RESEND_FROM_EMAIL ?? "noreply@fixhub.app";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://fixhub.app";
 

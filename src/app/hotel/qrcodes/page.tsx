@@ -14,7 +14,7 @@ export default async function QrCodesPage() {
     .single();
   if (!hotelUser || !["hotel_admin", "manager"].includes(hotelUser.role)) redirect("/hotel/dashboard");
 
-  const hotel = hotelUser.hotels as { slug: string };
+  const hotel = hotelUser.hotels as unknown as { slug: string };
 
   const { data: rooms } = await supabase
     .from("rooms")

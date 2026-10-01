@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 
   let escalated = 0;
   for (const incident of incidents ?? []) {
-    const cat = incident.incident_categories as { default_escalation_hours: number } | null;
+    const cat = incident.incident_categories as unknown as { default_escalation_hours: number } | null;
     const hours = cat?.default_escalation_hours ?? 4;
 
     // Bump priority if not critical

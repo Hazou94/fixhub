@@ -62,7 +62,7 @@ export default async function ClientPage({
       roomQuery = roomQuery.eq("room_number", decodeURIComponent(roomNumber));
     }
     // Increment scan counter
-    await supabase.rpc("increment_qr_scan", { p_token: token }).catch(() => {});
+    try { await supabase.rpc("increment_qr_scan", { p_token: token }); } catch {};
   } else {
     roomQuery = roomQuery.eq("room_number", decodeURIComponent(roomNumber));
   }

@@ -30,7 +30,7 @@ export default async function ProvidersPage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {providers?.map((p) => {
-          const skills = (p.provider_skills as { skills: { name_fr: string } | null }[])
+          const skills = (p.provider_skills as unknown as { skills: { name_fr: string } | null }[])
             ?.map((ps) => ps.skills?.name_fr)
             .filter(Boolean);
           return (

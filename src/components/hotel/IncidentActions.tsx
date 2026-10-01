@@ -7,7 +7,7 @@ import { STATUS_LABELS } from "@/types";
 
 interface Technician {
   user_id: string;
-  profiles: { full_name: string } | null;
+  profiles: { full_name: string } | { full_name: string }[] | null;
 }
 
 interface Props {
@@ -85,7 +85,7 @@ export default function IncidentActions({ incident, technicians, role }: Props) 
             <option value="">— Choisir un technicien —</option>
             {technicians.map((t) => (
               <option key={t.user_id} value={t.user_id}>
-                {t.profiles?.full_name ?? t.user_id}
+                {(Array.isArray(t.profiles) ? t.profiles[0]?.full_name : t.profiles?.full_name) ?? t.user_id}
               </option>
             ))}
           </select>

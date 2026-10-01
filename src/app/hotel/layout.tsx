@@ -16,7 +16,7 @@ export default async function HotelLayout({ children }: { children: React.ReactN
 
   if (!hotelUser) redirect("/auth/login");
 
-  const hotel = hotelUser.hotels as { id: string; name: string; logo_url?: string; subscription_status: string; trial_ends_at?: string };
+  const hotel = hotelUser.hotels as unknown as { id: string; name: string; logo_url?: string; subscription_status: string; trial_ends_at?: string };
 
   return (
     <div className="flex h-screen bg-gray-100">

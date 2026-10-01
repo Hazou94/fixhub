@@ -1,8 +1,8 @@
 import twilio from "twilio";
 
 const client = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
+  process.env.TWILIO_ACCOUNT_SID || "AC_placeholder",
+  process.env.TWILIO_AUTH_TOKEN || "placeholder_token"
 );
 const FROM = process.env.TWILIO_PHONE_NUMBER!;
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://fixhub.app";

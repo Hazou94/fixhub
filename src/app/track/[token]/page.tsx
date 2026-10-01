@@ -39,11 +39,11 @@ export default async function TrackPage({ params }: { params: Promise<{ token: s
     .eq("incident_id", incident.id)
     .order("created_at", { ascending: true });
 
-  const hotel = incident.hotels as { name: string; emergency_phone?: string };
-  const room = incident.rooms as { room_number: string };
-  const cat = incident.incident_categories as { name_fr: string; icon: string };
-  const photos = incident.incident_photos as { public_url: string }[];
-  const evaluation = (incident.evaluations as { guest_rating?: number; guest_comment?: string; submitted_at?: string }[])?.[0];
+  const hotel = incident.hotels as unknown as { name: string; emergency_phone?: string };
+  const room = incident.rooms as unknown as { room_number: string };
+  const cat = incident.incident_categories as unknown as { name_fr: string; icon: string };
+  const photos = incident.incident_photos as unknown as { public_url: string }[];
+  const evaluation = (incident.evaluations as unknown as { guest_rating?: number; guest_comment?: string; submitted_at?: string }[])?.[0];
 
   const currentStep = getStepIndex(incident.status as IncidentStatus);
   const isCancelled = incident.status === "cancelled";
