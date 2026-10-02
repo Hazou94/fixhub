@@ -19,7 +19,7 @@ export default async function HotelLayout({ children }: { children: React.ReactN
   const hotel = hotelUser.hotels as unknown as { id: string; name: string; logo_url?: string; subscription_status: string; trial_ends_at?: string };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen" style={{ background: "#f4f6f7" }}>
       <HotelNav hotel={hotel} role={hotelUser.role} userId={user.id} isSuperAdmin={user.user_metadata?.role === "super_admin"} />
       <main className="flex-1 overflow-y-auto">
         {children}

@@ -401,12 +401,11 @@ RETURNS BOOLEAN LANGUAGE sql STABLE SECURITY DEFINER AS $$
   );
 $$;
 
+-- Lit le rôle depuis le JWT de la session (un utilisateur connecté n'a pas
+-- le droit de lire auth.users directement, ce qui ferait échouer les requêtes).
 CREATE OR REPLACE FUNCTION is_super_admin()
 RETURNS BOOLEAN LANGUAGE sql STABLE AS $$
-  SELECT COALESCE(
-    (SELECT raw_user_meta_data->>'role' FROM auth.users WHERE id = auth.uid()) = 'super_admin',
-    FALSE
-  );
+  SELECT COALESCE((auth.jwt() -> 'user_metadata' ->> 'role') = 'super_admin', FALSE);
 $$;
 
 -- hotels policies

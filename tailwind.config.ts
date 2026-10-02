@@ -9,23 +9,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Teal "hospitalité" — accent principal du simulateur
         brand: {
-          50:  "#eef1f8",
-          100: "#d5dced",
-          200: "#abbad9",
-          300: "#8197c5",
-          400: "#5775b0",
-          500: "#1a2744",
-          600: "#16203a",
-          700: "#12192d",
-          800: "#0e1221",
-          900: "#0a0c15",
+          50:  "#e4f4f8",
+          100: "#c3e6ee",
+          200: "#93d4e1",
+          300: "#5bbdd1",
+          400: "#2a9fbb",
+          500: "#0e7490",
+          600: "#0b5e74",
+          700: "#0a4d60",
+          800: "#083c4b",
+          900: "#052630",
         },
         gold: {
           400: "#f5c842",
           500: "#e8b800",
           600: "#c9a000",
         },
+      },
+      fontFamily: {
+        sans: ["Manrope", "system-ui", "Segoe UI", "sans-serif"],
+        display: ["Sora", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
+      boxShadow: {
+        card: "0 1px 2px rgba(16,32,40,.06), 0 6px 20px rgba(16,32,40,.06)",
       },
     },
   },
